@@ -969,6 +969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3d3a88814b5ce6ba033afd2abc72b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1033785146}
+  cameraFollowSmoothTime: 0.15
+  cameraOffset: {x: 0, y: 40, z: -30}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,6 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a159ecd5da5fd5818dc03d994e0826b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraOffset: {x: 0, y: 40, z: -30}
 --- !u!1 &995120919
 GameObject:
   m_ObjectHideFlags: 0
