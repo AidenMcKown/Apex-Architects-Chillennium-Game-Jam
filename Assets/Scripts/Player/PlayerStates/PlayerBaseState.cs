@@ -22,7 +22,7 @@ public class PlayerBaseState
 
     public virtual void LogicUpdate()
     {
-
+        RotateTowardsMovementDirection();
     }
 
     public virtual void PhysicsUpdate()
@@ -36,5 +36,15 @@ public class PlayerBaseState
     public virtual void Exit()
     {
 
+    }
+
+    private void RotateTowardsMovementDirection()
+    {
+        if (InputManager.MovementInput != Vector2.zero)
+        {
+            // Slerp rotation towards movement direction
+            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(InputManager.MovementInput.x, 0, InputManager.MovementInput.y));
+            stateManager.playerOrientation.localRotation = Quaternion.Slerp(stateManager.playerOrientation.localRotation, targetRotation, Time.deltaTime * 15f);
+        }
     }
 }
