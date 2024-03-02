@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class CameraTransition : MonoBehaviour
 {
-
     float timeStep = 0.01f;
-
 
     public IEnumerator Transition(GameObject player, GameObject lightManager)
     {
         Vector3 originalCameraPosition = Camera.main.transform.position;
-        // float transitionSpeed = 0;
+
         float lerpAmount = 0f;
         Vector3 offsetVector = new(0, -40f, 30);
         while (Vector3.Distance(Camera.main.transform.position, player.transform.position - offsetVector) > 0.004f)
