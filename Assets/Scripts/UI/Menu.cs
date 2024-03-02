@@ -12,9 +12,14 @@ public class Menu : MonoBehaviour
         StartCoroutine(CameraTransition.Transition(lookAtPosition));
 
         // Disable parent
-        // Get the gameobject with the mainmenu tag and disable it
+        // Get the gameobject with the MainMenu tag and disable it
         GameObject.FindGameObjectWithTag("MainMenu").SetActive(false);
     }
+
+    // public void PauseGame()
+    // {
+
+    // }
 
     public void QuitGame()
     {

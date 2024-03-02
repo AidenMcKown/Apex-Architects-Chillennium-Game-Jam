@@ -9,6 +9,6 @@ public class CameraFollow : MonoBehaviour
     {
         // Make the camera follow the player
         Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        Camera.main.transform.position = playerPosition - new Vector3(30, -40f, 30);
+        Camera.main.transform.position = playerPosition - new Vector3(0, -40f, 30);
     }
 }
