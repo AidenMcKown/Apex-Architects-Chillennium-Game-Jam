@@ -8,7 +8,7 @@ public class CameraTransition : MonoBehaviour
 
     public IEnumerator Transition(Vector3 playerPosition)
     {
-        float transitionSpeed = 2;
+        float transitionSpeed = 0;
         while (Vector3.Distance(Camera.main.transform.position, playerPosition - new Vector3(30, -40f, 30)) > 0.001f)
         {
             // Move the camera to the target position and rotation
