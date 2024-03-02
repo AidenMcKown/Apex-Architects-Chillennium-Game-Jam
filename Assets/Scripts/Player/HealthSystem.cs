@@ -5,21 +5,27 @@ public class HealthSystem : MonoBehaviour
 {
     [Header("Health Settings")]
     [SerializeField] public float maxHealth = 100f;
-    private float currentHealth;
+    private static float currentHealth;
 
     [Header("Events")]
     public static Func<GameObject, Transform> PlayerResetEvent;
-    public static Action<float> PlayerDamageEvent;
-    public static Action<float> PlayerHealEvent;
+    public static event Action<float> PlayerDamageEvent;
+    public static event Action<float> PlayerHealEvent;
 
     void Awake()
     {
+        currentHealth = maxHealth;
+
         PlayerDamageEvent += OnPlayerDamageEvent;
         PlayerHealEvent += OnPlayerHealEvent;
-        currentHealth = maxHealth;
     }
 
-    public void OnPlayerDamageEvent(float damageAmount)
+    public static void ApplyDamage(float damageAmount)
+    {
+        PlayerDamageEvent?.Invoke(damageAmount);
+    }
+
+    private void OnPlayerDamageEvent(float damageAmount)
     {
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
@@ -35,12 +41,23 @@ public class HealthSystem : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void OnPlayerHealEvent(float healAmount)
+    public static void ApplyHeal(float healAmount)
+    {
+        PlayerHealEvent?.Invoke(healAmount);
+    }
+
+    private void OnPlayerHealEvent(float healAmount)
     {
         currentHealth += healAmount;
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
+    }
+
+    void OnDisable()
+    {
+        PlayerDamageEvent -= OnPlayerDamageEvent;
+        PlayerHealEvent -= OnPlayerHealEvent;
     }
 }

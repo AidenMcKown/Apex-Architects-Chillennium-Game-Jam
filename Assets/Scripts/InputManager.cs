@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     [HideInInspector] public static Vector2 MovementInput;
     [HideInInspector] public static bool SprintInput;
     [HideInInspector] public static bool JumpInput;
+    [HideInInspector] public static bool TestInput;
     [HideInInspector] public static bool GameEscapeInput;
 
     [Header("Menu Input Variables")]
@@ -29,6 +30,13 @@ public class InputManager : MonoBehaviour
         MovementInput = PlayerControls.Player.Movement.ReadValue<Vector2>();
         SprintInput = PlayerControls.Player.SprintToggle.IsPressed();
         JumpInput = PlayerControls.Player.Jump.triggered;
+
+        TestInput = PlayerControls.Player.Test.triggered;
+
+        if (TestInput)
+        {
+            HealthSystem.ApplyDamage(10f);
+        }
 
         // Enter pause menu
         GameEscapeInput = PlayerControls.Player.Escape.triggered;
