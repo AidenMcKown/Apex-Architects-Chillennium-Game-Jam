@@ -323,7 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 249303281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerOrientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 1033785144}
   - component: {fileID: 1033785143}
   - component: {fileID: 1033785142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1250,7 +1250,7 @@ GameObject:
   - component: {fileID: 1106515997}
   - component: {fileID: 1106515999}
   - component: {fileID: 1106515998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,7 +1381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1217685999}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FeetTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1548,8 @@ GameObject:
   - component: {fileID: 1339402993}
   - component: {fileID: 1339402992}
   - component: {fileID: 1339402991}
-  m_Layer: 0
+  - component: {fileID: 1339402995}
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1570,11 +1571,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1339402992
@@ -1642,6 +1643,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339402995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339402990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbf11cea5de0b24ca7b45316df2e723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1399190944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,7 +2521,7 @@ GameObject:
   - component: {fileID: 1761432153}
   - component: {fileID: 1761432155}
   - component: {fileID: 1761432154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}

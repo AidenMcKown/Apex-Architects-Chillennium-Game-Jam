@@ -18,12 +18,15 @@ public class SpawnManager : MonoBehaviour
 
     public Transform GetRandomSpawnPoint()
     {
-        return spawnPoints[Random.Range(0, spawnPoints.Count - 1)];
+        return spawnPoints[Random.Range(0, spawnPoints.Count)];
     }
 
     public Transform SpawnPlayer(GameObject player)
     {
-        player.GetComponent<Rigidbody>().Move(GetRandomSpawnPoint().position, Quaternion.identity);
+        Rigidbody playerRb = player.GetComponent<Rigidbody>();
+        playerRb.velocity = Vector3.zero;
+        playerRb.angularVelocity = Vector3.zero;
+        playerRb.Move(GetRandomSpawnPoint().position, Quaternion.identity);
         return player.transform;
     }
 
