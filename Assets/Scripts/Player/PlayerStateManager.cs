@@ -10,17 +10,21 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public Transform playerOrientation;
     [SerializeField] public Transform feetTransform;
-    private PlayerStateMachine stateMachine;
+    public PlayerStateMachine stateMachine;
 
     [Header("States")]
-    private IdleState idleState;
-    private RunState runState;
-    private SprintState sprintState;
+    public IdleState idleState;
+    public RunState runState;
+    public SprintState sprintState;
 
     [Header("Suspension Settings")]
     [SerializeField] public float springStrength = 5000f;
     [SerializeField] public float springDamper = 40f;
     [SerializeField] public float suspensionRestDistance = .8f;
+
+    [Header("Movement Settings")]
+    [SerializeField] public float runSpeed = 5f;
+    [SerializeField] public float sprintSpeed = 10f;
 
     void Start()
     {

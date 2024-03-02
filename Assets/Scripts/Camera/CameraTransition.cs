@@ -23,6 +23,13 @@ public class CameraTransition : MonoBehaviour
         }
         // print("Transition complete");
         Camera.main.GetComponent<CameraFollow>().enabled = true;
+
+        // Enable player action map and officially start the game
+        InputManager.GameIsPaused = false;
+        InputManager.HasGameStarted = true;
+        InputManager.SwitchActionMap(InputManager.PlayerControls.Player);
+
+        // Disable the camera transition script
         Camera.main.GetComponent<CameraTransition>().enabled = false;
     }
 }

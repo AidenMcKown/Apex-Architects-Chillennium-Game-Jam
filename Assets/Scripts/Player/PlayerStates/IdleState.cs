@@ -18,6 +18,19 @@ public class IdleState : PlayerBaseState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (InputManager.MovementInput != Vector2.zero)
+        {
+            if (InputManager.SprintInput)
+            {
+                // Switch to sprint state
+                stateMachine.ChangeState(stateManager.sprintState);
+                return;
+            }
+            // Switch to run state
+            stateMachine.ChangeState(stateManager.runState);
+            return;
+        }
     }
 
     public override void PhysicsUpdate()

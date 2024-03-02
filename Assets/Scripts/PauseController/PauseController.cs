@@ -2,22 +2,24 @@ using UnityEngine;
 
 public class PauseController : MonoBehaviour
 {
-
     [SerializeField] GameObject pauseMenu;
-    public static bool gameIsPaused = false;
+
+    void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            gameIsPaused = !gameIsPaused;
-        }
+        // If the game has not started, do not allow the player to pause
+        if (!InputManager.HasGameStarted) return;
+
         ManagePause();
     }
 
     public void ManagePause()
     {
-        if (gameIsPaused)
+        if (InputManager.GameIsPaused)
         {
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
@@ -32,14 +34,12 @@ public class PauseController : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        gameIsPaused = !gameIsPaused;
+        InputManager.GameIsPaused = true;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        gameIsPaused = !gameIsPaused;
+        InputManager.GameIsPaused = false;
     }
-
-
 }
