@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
+    [SerializeField] Transform player;
+    [SerializeField] float cameraFollowSmoothTime = 0.15f;
+    [SerializeField] Vector3 cameraOffset = new Vector3(0, 40f, -30f);
+    Vector3 cameraVelocity = Vector3.zero;
+
+    void LateUpdate()
     {
-        // Make the camera follow the player
-        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        Camera.main.transform.position = playerPosition - new Vector3(0, -40f, 30);
+        // Get the target camera position
+        Vector3 targetPosition = player.position + cameraOffset;
+
+        // Smoothly transition the camera to the target position
+        Vector3 currentPosition = Vector3.SmoothDamp(Camera.main.transform.position, targetPosition, ref cameraVelocity, cameraFollowSmoothTime);
+        Camera.main.transform.position = currentPosition;
     }
 }
