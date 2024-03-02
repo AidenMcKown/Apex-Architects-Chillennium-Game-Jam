@@ -33,15 +33,9 @@ public class PauseController : MonoBehaviour
         }
     }
 
-    public void PauseGame()
-    {
-        Time.timeScale = 0;
-        EnvironmentEventManager.IsGameActive = true;
-    }
-
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        EnvironmentEventManager.IsGameActive = false;
+        EnvironmentEventManager.IsGameActive = true;
     }
 }
