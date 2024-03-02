@@ -1,5 +1,3 @@
-using System;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class EnvironmentEventManager : MonoBehaviour
@@ -16,7 +14,7 @@ public class EnvironmentEventManager : MonoBehaviour
         Night
     }
 
-    public static State CurrentState = State.Morning;
+    public static State CurrentState = State.NotStarted;
 
     State GetState()
     {
@@ -40,7 +38,11 @@ public class EnvironmentEventManager : MonoBehaviour
 
     void Update()
     {
-        
+        CurrentState = GetState();
+        // print(CurrentState);
     }
+
+
+
 
 }

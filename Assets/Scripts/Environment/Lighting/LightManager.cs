@@ -13,7 +13,6 @@ public class LightManager : MonoBehaviour
         {
             // Rotate the sun 2 degrees per second
             transform.Rotate(2 * Time.deltaTime * Vector3.right);
-            // print("Sun is rotating...");
         }
     }
 }
