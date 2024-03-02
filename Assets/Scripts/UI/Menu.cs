@@ -1,25 +1,30 @@
+using System.Collections;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-
     public void StartGame()
     {
-        // print("Start Game");
-        CameraTransition cameraTransition = gameObject.AddComponent<CameraTransition>();
-        // Transition from menu view to game view
-        Vector3 lookAtPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        GameObject lightManager = GameObject.FindGameObjectWithTag("LightManager");
-        StartCoroutine(cameraTransition.Transition(lookAtPosition, lightManager));
+        CameraTransition cameraTransition = Camera.main.gameObject.GetComponent<CameraTransition>();
 
-        // Disable parent
-        // Get the gameobject with the MainMenu tag and disable it
+        // Find player game object in the scene
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        // Spawn player at a random spawn point
+        HealthSystem.PlayerResetEvent?.Invoke(player);
+
+        // Find light manager in the scene
+        GameObject lightManager = GameObject.FindGameObjectWithTag("LightManager");
+
+        // Start transition to the new camera position focusing on player
+        StartCoroutine(cameraTransition.Transition(player, lightManager));
+
+        // Disable the main menu
         GameObject.FindGameObjectWithTag("MainMenu").SetActive(false);
     }
 
     public void QuitGame()
     {
-        // print("Quit Game");
         Application.Quit();
     }
 
