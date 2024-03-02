@@ -12,15 +12,15 @@ public class ChallengeManager : MonoBehaviour
 
     void ManageChallenges()
     {
-        float randFloat = Random.Range(0f, 1f);
-
+        float randFloat;
         if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Morning)
         {
             foreach (Challenge challenge in challenges)
             {
+                randFloat = Random.Range(0f, 1f);
                 if (randFloat < challenge.weights[0])
                 {
-                    print($"{randFloat} < {challenge.weights}");
+                    // print($"{randFloat} < {challenge.weights}");
                     challenge.Spawn();
                 }
             }
@@ -30,9 +30,10 @@ public class ChallengeManager : MonoBehaviour
         {
             foreach (Challenge challenge in challenges)
             {
+                randFloat = Random.Range(0f, 1f);
                 if (randFloat < challenge.weights[1])
                 {
-                    print($"{randFloat} < {challenge.weights}");
+                    // print($"{randFloat} < {challenge.weights}");
                     challenge.Spawn();
                 }
             }
@@ -42,9 +43,10 @@ public class ChallengeManager : MonoBehaviour
         {
             foreach (Challenge challenge in challenges)
             {
+                randFloat = Random.Range(0f, 1f);
                 if (randFloat < challenge.weights[2])
                 {
-                    print($"{randFloat} < {challenge.weights}");
+                    // print($"{randFloat} < {challenge.weights}");
                     challenge.Spawn();
                 }
             }
