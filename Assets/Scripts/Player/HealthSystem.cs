@@ -4,8 +4,9 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     [Header("Health Settings")]
+    [SerializeField] HealthBar healthBar;
     [SerializeField] public float maxHealth = 100f;
-    private static float currentHealth;
+    public static float currentHealth;
 
     [Header("Events")]
     public static Func<GameObject, Transform> PlayerResetEvent;
@@ -18,6 +19,16 @@ public class HealthSystem : MonoBehaviour
 
         PlayerDamageEvent += OnPlayerDamageEvent;
         PlayerHealEvent += OnPlayerHealEvent;
+    }
+
+    void Update()
+    {
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBar.SetHealthBar(currentHealth / maxHealth);
     }
 
     public static void ApplyDamage(float damageAmount)
