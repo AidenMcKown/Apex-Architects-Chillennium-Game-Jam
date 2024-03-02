@@ -20,8 +20,6 @@ public class InputManager : MonoBehaviour
     [HideInInspector] public static bool UIEscapeInput;
     public static bool HasGameStarted;
 
-    public static bool GameIsPaused;
-
     void Awake()
     {
         PlayerControls = new PlayerControls();
@@ -36,17 +34,17 @@ public class InputManager : MonoBehaviour
 
         // Enter pause menu
         GameEscapeInput = PlayerControls.Player.Escape.triggered;
-        if (GameEscapeInput && !GameIsPaused && HasGameStarted)
+        if (GameEscapeInput && EnvironmentEventManager.IsGameActive && HasGameStarted)
         {
-            GameIsPaused = true;
+            EnvironmentEventManager.IsGameActive = false;
             SwitchActionMap(PlayerControls.UI);
         }
 
         // Exit pause menu
         UIEscapeInput = PlayerControls.UI.Escape.triggered;
-        if (UIEscapeInput && GameIsPaused && HasGameStarted)
+        if (UIEscapeInput && !EnvironmentEventManager.IsGameActive && HasGameStarted)
         {
-            GameIsPaused = false;
+            EnvironmentEventManager.IsGameActive = true;
             SwitchActionMap(PlayerControls.Player);
         }
     }
@@ -56,7 +54,6 @@ public class InputManager : MonoBehaviour
         // Only turn on the UI action map at start because player has not started the game yet
         PlayerControls.UI.Enable();
         HasGameStarted = false;
-        GameIsPaused = true;
     }
 
     void OnDisable()

@@ -19,27 +19,29 @@ public class PauseController : MonoBehaviour
 
     public void ManagePause()
     {
-        if (InputManager.GameIsPaused)
+        if (EnvironmentEventManager.IsGameActive)
         {
-            Time.timeScale = 0;
-            pauseMenu.SetActive(true);
+            // Game is active
+            Time.timeScale = 1;
+            pauseMenu.SetActive(false);
         }
         else
         {
-            Time.timeScale = 1;
-            pauseMenu.SetActive(false);
+            // Game is paused
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
         }
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
-        InputManager.GameIsPaused = true;
+        EnvironmentEventManager.IsGameActive = true;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        InputManager.GameIsPaused = false;
+        EnvironmentEventManager.IsGameActive = false;
     }
 }

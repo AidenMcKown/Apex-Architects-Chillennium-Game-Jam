@@ -5,6 +5,6 @@ using UnityEngine;
 public class EnvironmentEventManager : MonoBehaviour
 {
 
-    public static bool playing = false;
+    public static bool IsGameActive = false;
 
 }
