@@ -21,7 +21,7 @@ public class LightManager : MonoBehaviour
     // Coroutine to rotate the sun
     private IEnumerator RotateSunCoroutine()
     {
-        while (EnvironmentEventManager.playing)
+        while (EnvironmentEventManager.IsGameActive)
         {
             // Rotate the sun 2 degrees per second
             transform.Rotate(360 / timeToRotate * timeStep * Vector3.right);

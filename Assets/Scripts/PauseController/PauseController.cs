@@ -2,44 +2,46 @@ using UnityEngine;
 
 public class PauseController : MonoBehaviour
 {
-
     [SerializeField] GameObject pauseMenu;
-    public static bool gameIsPaused = false;
+
+    void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            gameIsPaused = !gameIsPaused;
-        }
+        // If the game has not started, do not allow the player to pause
+        if (!InputManager.HasGameStarted) return;
+
         ManagePause();
     }
 
     public void ManagePause()
     {
-        if (gameIsPaused)
+        if (EnvironmentEventManager.IsGameActive)
         {
-            Time.timeScale = 0;
-            pauseMenu.SetActive(true);
+            // Game is active
+            Time.timeScale = 1;
+            pauseMenu.SetActive(false);
         }
         else
         {
-            Time.timeScale = 1;
-            pauseMenu.SetActive(false);
+            // Game is paused
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
         }
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
-        gameIsPaused = !gameIsPaused;
+        EnvironmentEventManager.IsGameActive = true;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        gameIsPaused = !gameIsPaused;
+        EnvironmentEventManager.IsGameActive = false;
     }
-
-
 }

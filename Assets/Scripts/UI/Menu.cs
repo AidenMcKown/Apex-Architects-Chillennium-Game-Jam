@@ -6,21 +6,16 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         // print("Start Game");
-        CameraTransition CameraTransition = new();
+        CameraTransition cameraTransition = gameObject.AddComponent<CameraTransition>();
         // Transition from menu view to game view
         Vector3 lookAtPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         GameObject lightManager = GameObject.FindGameObjectWithTag("LightManager");
-        StartCoroutine(CameraTransition.Transition(lookAtPosition, lightManager));
+        StartCoroutine(cameraTransition.Transition(lookAtPosition, lightManager));
 
         // Disable parent
         // Get the gameobject with the MainMenu tag and disable it
         GameObject.FindGameObjectWithTag("MainMenu").SetActive(false);
     }
-
-    // public void PauseGame()
-    // {
-
-    // }
 
     public void QuitGame()
     {
