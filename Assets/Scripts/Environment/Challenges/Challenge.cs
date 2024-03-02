@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Challenge : MonoBehaviour
 {
-    public float weight;
+    public float[] weights;
     public virtual void Spawn()
     {
 

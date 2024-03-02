@@ -3,12 +3,6 @@ using System.Collections;
 public class BeeChallenge : Challenge
 {
 
-    void Start()
-    {
-        weight = 0.1f;
-    }
-
-
     public override void Spawn()
     {
         SpawnBee();

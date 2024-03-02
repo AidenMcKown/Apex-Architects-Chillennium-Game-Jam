@@ -3,9 +3,8 @@ using UnityEngine;
 public class ChallengeManager : MonoBehaviour
 {
 
-    float[] challengeWeightMultipliers = new float[3] { 1, 2, 3 };
-    // Update is called once per frame
     public Challenge[] challenges;
+
     void Update()
     {
         ManageChallenges();
@@ -19,9 +18,9 @@ public class ChallengeManager : MonoBehaviour
         {
             foreach (Challenge challenge in challenges)
             {
-                if (randFloat < challenge.weight * challengeWeightMultipliers[0])
+                if (randFloat < challenge.weights[0])
                 {
-                    print($"{randFloat} < {challenge.weight * challengeWeightMultipliers[0]}");
+                    print($"{randFloat} < {challenge.weights}");
                     challenge.Spawn();
                 }
             }
@@ -31,9 +30,9 @@ public class ChallengeManager : MonoBehaviour
         {
             foreach (Challenge challenge in challenges)
             {
-                if (randFloat < challenge.weight * challengeWeightMultipliers[1])
+                if (randFloat < challenge.weights[1])
                 {
-                    print($"{randFloat} < {challenge.weight * challengeWeightMultipliers[0]}");
+                    print($"{randFloat} < {challenge.weights}");
                     challenge.Spawn();
                 }
             }
@@ -43,13 +42,12 @@ public class ChallengeManager : MonoBehaviour
         {
             foreach (Challenge challenge in challenges)
             {
-                if (randFloat < challenge.weight * challengeWeightMultipliers[2])
+                if (randFloat < challenge.weights[2])
                 {
-                    print($"{randFloat} < {challenge.weight * challengeWeightMultipliers[0]}");
+                    print($"{randFloat} < {challenge.weights}");
                     challenge.Spawn();
                 }
             }
-
         }
     }
 }

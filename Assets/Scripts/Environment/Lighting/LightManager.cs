@@ -3,7 +3,6 @@ using UnityEngine;
 public class LightManager : MonoBehaviour
 {
 
-    float timeStep = 0.02f;
     float timeToRotate = EnvironmentEventManager.dayDuration;
 
 

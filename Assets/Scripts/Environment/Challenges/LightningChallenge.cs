@@ -4,6 +4,7 @@ using UnityEngine;
 public class LightningChallenge : Challenge
 {
 
+
     [SerializeField]
     GameObject lightningWarning1;
     [SerializeField]
@@ -48,7 +49,7 @@ public class LightningChallenge : Challenge
     {
         print("spawn lightning");
         GameObject lightningGameObject;
-        lightningGameObject = Instantiate(lightningBolt, playerPosition, Quaternion.identity);
+        lightningGameObject = Instantiate(lightningBolt, playerPosition - new Vector3(0, 1, 0), Quaternion.Euler(-46.306f, Random.Range(0, 360), -87.125f));
         yield return new WaitForSeconds(1f);
         Destroy(lightningGameObject);
     }
