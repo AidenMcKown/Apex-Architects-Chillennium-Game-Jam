@@ -36,5 +36,6 @@ public class CameraTransition : MonoBehaviour
         lightManager.GetComponent<LightManager>().enabled = true;
         EnvironmentEventManager.IsGameActive = true;
         Camera.main.GetComponent<CameraTransition>().enabled = false;
+        GameState.startTime = Time.time;
     }
 }
