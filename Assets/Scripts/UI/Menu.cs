@@ -5,8 +5,7 @@ public class Menu : MonoBehaviour
 {
     public void StartGame()
     {
-        // Add CameraTransition component to this game object
-        CameraTransition cameraTransition = gameObject.AddComponent<CameraTransition>();
+        CameraTransition cameraTransition = Camera.main.gameObject.GetComponent<CameraTransition>();
 
         // Find player game object in the scene
         GameObject player = GameObject.FindGameObjectWithTag("Player");
