@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
 
     public Transform GetRandomSpawnPoint()
     {
-        return spawnPoints[Random.Range(0, spawnPoints.Count - 1)];
+        return spawnPoints[Random.Range(0, spawnPoints.Count)];
     }
 
     public Transform SpawnPlayer(GameObject player)
