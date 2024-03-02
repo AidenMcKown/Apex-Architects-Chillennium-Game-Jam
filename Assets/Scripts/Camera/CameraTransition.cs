@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraTransition : MonoBehaviour
 {
 
-    public IEnumerator Transition(Vector3 playerPosition)
+    public IEnumerator Transition(Vector3 playerPosition, GameObject lightManager)
     {
         float transitionSpeed = 0;
         Vector3 offsetVector = new(0, -40f, 30);
@@ -31,5 +31,7 @@ public class CameraTransition : MonoBehaviour
 
         // Disable the camera transition script
         Camera.main.GetComponent<CameraTransition>().enabled = false;
+        lightManager.GetComponent<LightManager>().enabled = true;
+        EnvironmentEventManager.playing = true;
     }
 }
