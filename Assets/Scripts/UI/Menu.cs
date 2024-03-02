@@ -9,7 +9,8 @@ public class Menu : MonoBehaviour
         CameraTransition CameraTransition = new();
         // Transition from menu view to game view
         Vector3 lookAtPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        StartCoroutine(CameraTransition.Transition(lookAtPosition));
+        GameObject lightManager = GameObject.FindGameObjectWithTag("LightManager");
+        StartCoroutine(CameraTransition.Transition(lookAtPosition, lightManager));
 
         // Disable parent
         // Get the gameobject with the MainMenu tag and disable it
