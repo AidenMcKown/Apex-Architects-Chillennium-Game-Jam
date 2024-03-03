@@ -8,9 +8,8 @@ public class BeeAI : MonoBehaviour
     public AudioSource beeAudioSource;
 
     [Header("Bee Settings")]
-    [SerializeField] float maxBuzzingVolume = 0.8f;
-    [SerializeField] float volume;
-    [SerializeField] float minBuzzingVolume = 0.15f;
+    [SerializeField] float maxBuzzingVolume = 1f;
+    float volume;
     bool beeline = false;
     Vector3 playerPosition;
     Vector3 beelineDirection;
