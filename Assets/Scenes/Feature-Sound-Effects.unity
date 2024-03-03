@@ -2449,8 +2449,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3307,6 +3307,13 @@ MonoBehaviour:
   lightningWarning1: {fileID: 8258090930359340955, guid: 0ecf79c4fd3338c049a9c8a40ad64ac6, type: 3}
   lightningWarning2: {fileID: 3843716963255479376, guid: 4b82e3f36a9a9b81fa6e65726894843b, type: 3}
   lightningBolt: {fileID: 7706730903425633900, guid: c19b87f60b4ada785a94fcd184dfb6d8, type: 3}
+  lightningSounds:
+  - {fileID: 8300000, guid: aaebc37d93d473f4c947fa68c50bfdf9, type: 3}
+  - {fileID: 8300000, guid: 8273ef26f8820744490ca57f0fd72d39, type: 3}
+  - {fileID: 8300000, guid: 0b7bea0cde2705f4e88b92e1ae4afab7, type: 3}
+  - {fileID: 8300000, guid: b7b770930a5abbd419eba721e80b1209, type: 3}
+  - {fileID: 8300000, guid: d010dff6c1e9f954fb4d07bc6cc68c51, type: 3}
+  lightningSoundVolume: 1
 --- !u!1 &1631938129
 GameObject:
   m_ObjectHideFlags: 0
