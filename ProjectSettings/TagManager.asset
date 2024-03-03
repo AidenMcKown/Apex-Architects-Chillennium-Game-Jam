@@ -8,6 +8,7 @@ TagManager:
   - PauseMenu
   - LightManager
   - CreditsMenu
+  - Clock
   layers:
   - Default
   - TransparentFX
