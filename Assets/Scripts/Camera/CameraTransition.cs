@@ -4,6 +4,7 @@ using UnityEngine;
 public class CameraTransition : MonoBehaviour
 {
     [SerializeField] Vector3 cameraOffset = new(0, 40f, -30f);
+    [SerializeField] GameObject clock;
     float timeStep = 0.01f;
 
     public IEnumerator Transition(GameObject player, GameObject lightManager)
@@ -34,7 +35,8 @@ public class CameraTransition : MonoBehaviour
         // Disable the camera transition script
         lightManager.GetComponent<LightManager>().enabled = true;
         EnvironmentEventManager.IsGameActive = true;
-        Camera.main.GetComponent<CameraTransition>().enabled = false;
         GameState.startTime = Time.time;
+        clock.SetActive(true);
+        Camera.main.GetComponent<CameraTransition>().enabled = false;
     }
 }

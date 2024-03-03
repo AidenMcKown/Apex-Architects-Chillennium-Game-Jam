@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameState : MonoBehaviour
@@ -18,6 +16,15 @@ public class GameState : MonoBehaviour
         {
             timeSinceStartOfDay = Time.time - startTime;
             return timeSinceStartOfDay;
+        }
+    }
+
+    void Update()
+    {
+        if (timeSinceStartOfDay > EnvironmentEventManager.dayDuration)
+        {
+            EnvironmentEventManager.IsGameActive = false;
+            print("You Won!");
         }
     }
 
