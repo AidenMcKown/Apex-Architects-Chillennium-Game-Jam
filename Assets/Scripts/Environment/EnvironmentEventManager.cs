@@ -20,9 +20,12 @@ public class EnvironmentEventManager : MonoBehaviour
     [SerializeField] Transform player;
 
     [Header("Audio Settings")]
-    [SerializeField] AudioSource ambientAudioSource;
+    [SerializeField] AudioSource clearAudioSource;
+    [SerializeField] AudioSource stormAudioSource;
     [SerializeField] AudioClip clearAudio;
     [SerializeField] AudioClip stormAudio;
+    [SerializeField] float audioTransitionTime = 3f;
+    float targetAudioVolume, clearAudioTransitionVelocity, stormAudioTransitionVelocity;
 
     [Header("Storm Settings")]
     [SerializeField] ParticleSystem rainParticleSystem;
@@ -38,8 +41,8 @@ public class EnvironmentEventManager : MonoBehaviour
 
     void Start()
     {
-        ambientAudioSource.clip = clearAudio;
-        ambientAudioSource.Play();
+        clearAudioSource.clip = clearAudio;
+        clearAudioSource.Play();
 
         rainParticleSystem.Stop();
         currentRainEmissionRate = targetRainEmissionRate = 0f;
@@ -57,8 +60,9 @@ public class EnvironmentEventManager : MonoBehaviour
             {
                 HasStartedStorming = true;
                 // Change the audio to storm
-                ambientAudioSource.clip = stormAudio;
-                ambientAudioSource.Play();
+                stormAudioSource.clip = stormAudio;
+                targetAudioVolume = 0.8f;
+                stormAudioSource.Play();
             }
 
             targetRainEmissionRate = afternoonRainEmissionRate;
@@ -69,6 +73,7 @@ public class EnvironmentEventManager : MonoBehaviour
         {
             targetRainEmissionRate = nightRainEmissionRate;
             targetRainSpeed = nightRainSpeed;
+            targetAudioVolume = 1f;
             return State.Night;
         }
         else
@@ -102,5 +107,9 @@ public class EnvironmentEventManager : MonoBehaviour
         currentRainSpeed = Mathf.SmoothDamp(currentRainSpeed, targetRainSpeed, ref rainSpeedVelocity, emissionRateSmoothTime);
         var mainModule = rainParticleSystem.main;
         mainModule.simulationSpeed = currentRainSpeed;
+
+        // Smooth damp the audio volumes
+        clearAudioSource.volume = Mathf.SmoothDamp(clearAudioSource.volume, 0f, ref clearAudioTransitionVelocity, audioTransitionTime);
+        stormAudioSource.volume = Mathf.SmoothDamp(stormAudioSource.volume, targetAudioVolume, ref stormAudioTransitionVelocity, audioTransitionTime);
     }
 }
