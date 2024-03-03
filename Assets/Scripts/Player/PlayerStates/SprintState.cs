@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SprintState : PlayerBaseState
 {
+    private float footstepTimer;
+
     public SprintState(PlayerStateMachine _stateMachine, PlayerStateManager _stateManager) : base(_stateMachine, _stateManager)
     {
         stateMachine = _stateMachine;
@@ -29,6 +31,13 @@ public class SprintState : PlayerBaseState
             stateMachine.ChangeState(stateManager.runState);
             return;
         }
+
+        footstepTimer += Time.deltaTime;
+        if (footstepTimer >= stateManager.sprintFootstepInterval)
+        {
+            footstepTimer = 0;
+            PlayFootstepSound();
+        }
     }
 
     public override void PhysicsUpdate()
@@ -43,5 +52,10 @@ public class SprintState : PlayerBaseState
     public override void Exit()
     {
         base.Exit();
+    }
+
+    private void PlayFootstepSound()
+    {
+        stateManager.footstepAudioSource.PlayOneShot(stateManager.footstepSounds[Random.Range(0, stateManager.footstepSounds.Count)]);
     }
 }

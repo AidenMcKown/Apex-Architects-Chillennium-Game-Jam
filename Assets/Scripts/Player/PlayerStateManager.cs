@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using UnityEngine;
-
 
 public class PlayerStateManager : MonoBehaviour
 {
@@ -8,6 +8,8 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public Transform playerOrientation;
     [SerializeField] public Transform feetTransform;
+    [SerializeField] public AudioSource footstepAudioSource;
+    [SerializeField] public List<AudioClip> footstepSounds;
     public PlayerStateMachine stateMachine;
 
     [Header("States")]
@@ -23,6 +25,8 @@ public class PlayerStateManager : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] public float runSpeed = 5f;
     [SerializeField] public float sprintSpeed = 10f;
+    [SerializeField] public float runFootstepInterval = 0.5f;
+    [SerializeField] public float sprintFootstepInterval = 0.3f;
 
     void Start()
     {

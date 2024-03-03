@@ -1,12 +1,10 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BeeSpawner : Challenge
 {
-
-    [SerializeField]
-    GameObject bee;
-    GameObject beeGameObject;
+    [SerializeField] GameObject beePrefab;
+    [SerializeField] List<AudioClip> beeBuzzingSounds;
 
     public override void Spawn()
     {
@@ -15,9 +13,14 @@ public class BeeSpawner : Challenge
 
     void SpawnBee()
     {
-        beeGameObject = Instantiate(bee, transform.position, Quaternion.identity);
+        GameObject beeGameObject = Instantiate(beePrefab, transform.position, Quaternion.identity);
         beeGameObject.transform.parent = transform;
-        beeGameObject.AddComponent<BeeAI>();
+        BeeAI beeAI = beeGameObject.GetComponent<BeeAI>();
+
+        // Give bee a random buzzing sound
+        beeAI.beeAudioSource.clip = beeBuzzingSounds[Random.Range(0, beeBuzzingSounds.Count)];
+        beeAI.beeAudioSource.pitch = Random.Range(0.8f, 1.2f);
+        beeAI.beeAudioSource.Play();
     }
 
 }
