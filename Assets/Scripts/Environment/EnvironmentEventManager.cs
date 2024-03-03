@@ -28,9 +28,13 @@ public class EnvironmentEventManager : MonoBehaviour
     [SerializeField] ParticleSystem rainParticleSystem;
     [SerializeField] float afternoonRainEmissionRate = 300f;
     [SerializeField] float nightRainEmissionRate = 500f;
-    [SerializeField] float changeInRainEmissionRateSmoothTime = 3f;
+    [SerializeField] float emissionRateSmoothTime = 3f;
 
     float currentRainEmissionRate, targetRainEmissionRate, emissionRateVelocity;
+    [SerializeField] float afternoonRainSpeed = 1f;
+    [SerializeField] float nightRainSpeed = 1.5f;
+    [SerializeField] float rainSpeedSmoothTime = 3f;
+    float currentRainSpeed, targetRainSpeed, rainSpeedVelocity;
 
     void Start()
     {
@@ -58,11 +62,13 @@ public class EnvironmentEventManager : MonoBehaviour
             }
 
             targetRainEmissionRate = afternoonRainEmissionRate;
+            targetRainSpeed = afternoonRainSpeed;
             return State.Afternoon;
         }
         else if (GameState.GetTimeSinceStartOfDay() % dayDuration < dayDuration && GameState.GetTimeSinceStartOfDay() >= 0)
         {
             targetRainEmissionRate = nightRainEmissionRate;
+            targetRainSpeed = nightRainSpeed;
             return State.Night;
         }
         else
@@ -88,8 +94,13 @@ public class EnvironmentEventManager : MonoBehaviour
         rainParticleSystem.transform.position = player.position + new Vector3(0, 20, 0);
 
         // Smooth damp the rain emission rate for smooth transitions
-        currentRainEmissionRate = Mathf.SmoothDamp(currentRainEmissionRate, targetRainEmissionRate, ref emissionRateVelocity, changeInRainEmissionRateSmoothTime);
+        currentRainEmissionRate = Mathf.SmoothDamp(currentRainEmissionRate, targetRainEmissionRate, ref emissionRateVelocity, emissionRateSmoothTime);
         ParticleSystem.EmissionModule emissionModule = rainParticleSystem.emission;
         emissionModule.rateOverTime = currentRainEmissionRate;
+
+        // Do the same with the rain speed
+        currentRainSpeed = Mathf.SmoothDamp(currentRainSpeed, targetRainSpeed, ref rainSpeedVelocity, emissionRateSmoothTime);
+        var mainModule = rainParticleSystem.main;
+        mainModule.simulationSpeed = currentRainSpeed;
     }
 }
