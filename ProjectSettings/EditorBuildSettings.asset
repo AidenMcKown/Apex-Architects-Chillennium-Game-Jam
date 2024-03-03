@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/feature-game-over.unity
+    guid: acdd528f89e03d09e98df1e1e8a08134
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 793910a1bbe5a8a53ab7185110b5bc01
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: aac6d0581eddfdd4ca8cb1f7c601ffcf, type: 2}
