@@ -33,7 +33,7 @@ public class BeeAI : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            if (Vector3.Distance(transform.position, playerPosition) < 6)
+            if (Vector3.Distance(transform.position, playerPosition) < 12)
             {
                 beeline = true;
                 beelineDirection = (playerPosition - transform.position).normalized / 10;
@@ -55,7 +55,7 @@ public class BeeAI : MonoBehaviour
             }
 
             transform.position += beelineDirection;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.006f);
         }
     }
 

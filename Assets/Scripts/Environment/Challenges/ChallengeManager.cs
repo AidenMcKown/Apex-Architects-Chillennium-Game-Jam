@@ -7,7 +7,10 @@ public class ChallengeManager : MonoBehaviour
 
     void Update()
     {
-        ManageChallenges();
+        if (EnvironmentEventManager.IsGameActive)
+        {
+            ManageChallenges();
+        }
     }
 
     void ManageChallenges()
