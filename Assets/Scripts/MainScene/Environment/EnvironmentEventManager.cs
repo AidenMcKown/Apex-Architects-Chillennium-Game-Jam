@@ -104,7 +104,7 @@ public class EnvironmentEventManager : MonoBehaviour
         emissionModule.rateOverTime = currentRainEmissionRate;
 
         // Do the same with the rain speed
-        currentRainSpeed = Mathf.SmoothDamp(currentRainSpeed, targetRainSpeed, ref rainSpeedVelocity, emissionRateSmoothTime);
+        currentRainSpeed = Mathf.SmoothDamp(currentRainSpeed, targetRainSpeed, ref rainSpeedVelocity, rainSpeedSmoothTime);
         var mainModule = rainParticleSystem.main;
         mainModule.simulationSpeed = currentRainSpeed;
 
