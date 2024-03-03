@@ -22,7 +22,7 @@ public class WindChallenge : MonoBehaviour
     void Update()
     {
         SetWindDirection();
-        ApplyWindForce(windDirection, windForce);
+        ApplyWindForce(windDirection);
     }
 
     void SetWindDirection()
@@ -33,25 +33,27 @@ public class WindChallenge : MonoBehaviour
         windDirection = direction;
     }
 
-    void ApplyWindForce(Vector3 windDirection, float windForce)
+    void ApplyWindForce(Vector3 windDirection)
     {
-
-        if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Afternoon)
+        if (EnvironmentEventManager.IsGameActive)
         {
+            if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Afternoon)
+            {
 
-            windForce = 300;
-            // Apply wind force to the player
-            playerRigidbody.AddForce(windDirection * windForce);
+                windForce = 300;
+                // Apply wind force to the player
+                playerRigidbody.AddForce(windDirection * windForce);
 
+            }
+            if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Night)
+            {
+
+                windForce = 500;
+                // Apply wind force to the player
+                playerRigidbody.AddForce(windDirection * windForce);
+
+            }
         }
-        if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Night)
-        {
 
-            windForce = 500;
-            // Apply wind force to the player
-            playerRigidbody.AddForce(windDirection * windForce);
-
-        }
-        // Apply wind force to the player
     }
 }

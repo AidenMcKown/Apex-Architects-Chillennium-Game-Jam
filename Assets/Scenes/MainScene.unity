@@ -2109,8 +2109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weights:
   - 0
-  - 0.001
-  - 0.002
+  - 0.003
+  - 0.0055
   lightningWarning1: {fileID: 8258090930359340955, guid: 0ecf79c4fd3338c049a9c8a40ad64ac6, type: 3}
   lightningWarning2: {fileID: 3843716963255479376, guid: 4b82e3f36a9a9b81fa6e65726894843b, type: 3}
   lightningWarning3: {fileID: 3843716963255479376, guid: 496452e53bdf9b603be56affda4e8fe0, type: 3}

@@ -4,7 +4,7 @@ public class EnvironmentEventManager : MonoBehaviour
 {
 
     public static bool IsGameActive = false;
-    public static float dayDuration = 3f;
+    public static float dayDuration = 90f;
 
     public enum State
     {
