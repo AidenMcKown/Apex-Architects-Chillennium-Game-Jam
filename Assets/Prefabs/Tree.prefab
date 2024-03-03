@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8570736336674475927}
   - component: {fileID: 6755377503937513178}
   - component: {fileID: 8587466366005616124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weights:
-  - 0.0005
-  - 0.001
-  - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  - 0.002
+  - 0.002
+  - 0.002
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
