@@ -308,7 +308,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &102421958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +448,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!65 &138707917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -804,7 +814,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &394867041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,7 +1470,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &803450034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,7 +2031,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &998222521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2450,7 +2475,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2719,7 +2744,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &1330298552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3313,7 +3343,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0b7bea0cde2705f4e88b92e1ae4afab7, type: 3}
   - {fileID: 8300000, guid: b7b770930a5abbd419eba721e80b1209, type: 3}
   - {fileID: 8300000, guid: d010dff6c1e9f954fb4d07bc6cc68c51, type: 3}
-  lightningSoundVolume: 1
 --- !u!1 &1631938129
 GameObject:
   m_ObjectHideFlags: 0
@@ -4042,7 +4071,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &1762626050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4213,7 +4247,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &1796986074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4527,7 +4566,12 @@ MonoBehaviour:
   - 0.001
   - 0.001
   - 0.001
-  bee: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beePrefab: {fileID: 1599940313741970233, guid: 6b4b6d1f06de06320b60e22617d9453c, type: 3}
+  beeBuzzingSounds:
+  - {fileID: 8300000, guid: e54bd55aeafe03c4ba10b8a7f65b0eb1, type: 3}
+  - {fileID: 8300000, guid: b1b1cb2682460474ebce19c914cc41f3, type: 3}
+  - {fileID: 8300000, guid: f0184776ead9a6840b7d37ebff68e55d, type: 3}
+  - {fileID: 8300000, guid: f76c957d8e6b0eb4e80f76233000278a, type: 3}
 --- !u!114 &1899913242
 MonoBehaviour:
   m_ObjectHideFlags: 0
