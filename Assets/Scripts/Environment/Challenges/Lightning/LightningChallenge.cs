@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LightningChallenge : Challenge
@@ -14,6 +15,10 @@ public class LightningChallenge : Challenge
     GameObject lightningWarning3;
     [SerializeField]
     GameObject lightningBolt;
+
+    [Header("Audio Settings")]
+    [SerializeField]
+    List<AudioClip> lightningSounds;
 
 
     public override void Spawn()
@@ -48,15 +53,19 @@ public class LightningChallenge : Challenge
             count++;
             Destroy(lightningWarningGameObject);
         }
-        // print("lightning warning done");
         StartCoroutine(SpawnLightning(playerPosition, lightningBolt));
     }
 
     IEnumerator SpawnLightning(Vector3 playerPosition, GameObject lightningBolt)
     {
-        // print("spawn lightning");
-        GameObject lightningGameObject;
-        lightningGameObject = Instantiate(lightningBolt, playerPosition - new Vector3(0, 1, 0), Quaternion.Euler(-46.306f, Random.Range(0, 360), -87.125f));
+        GameObject lightningGameObject = Instantiate(lightningBolt, playerPosition - new Vector3(0, 1, 0), Quaternion.Euler(-46.306f, Random.Range(0, 360), -87.125f));
+
+        // Give lightning a randomized sound
+        AudioSource audioSource = lightningGameObject.GetComponent<AudioSource>();
+        audioSource.clip = lightningSounds[Random.Range(0, lightningSounds.Count)];
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.Play();
+
         yield return new WaitForSeconds(1f);
         Destroy(lightningGameObject);
     }
