@@ -8,6 +8,15 @@ public class Menu : MonoBehaviour
     [SerializeField]
     SpawnManager spawnManager;
 
+    [SerializeField]
+    GameObject tutorialMenu;
+    [SerializeField]
+    GameObject tutorialMsg1;
+    [SerializeField]
+    GameObject tutorialMsg2;
+    [SerializeField]
+    GameObject tutorialMsg3;
+
     public void StartGame()
     {
         CameraTransition cameraTransition = Camera.main.gameObject.GetComponent<CameraTransition>();
@@ -18,8 +27,8 @@ public class Menu : MonoBehaviour
         // Find light manager in the scene
         GameObject lightManager = GameObject.FindGameObjectWithTag("LightManager");
 
-        // Start transition to the new camera position focusing on player
-        StartCoroutine(cameraTransition.Transition(player, lightManager));
+        // Load the tutorial page
+        StartCoroutine(DisplayTutorial(cameraTransition, lightManager));
 
         // Disable the main menu
         GameObject.FindGameObjectWithTag("MainMenu").SetActive(false);
@@ -40,6 +49,32 @@ public class Menu : MonoBehaviour
     {
         mainMenu.SetActive(true);
         GameObject.FindGameObjectWithTag("CreditsMenu").SetActive(false);
+    }
+
+    private IEnumerator DisplayTutorial(CameraTransition cameraTransition, GameObject lightManager)
+    {
+        // Enable the tutorial menu with all text hidden
+        tutorialMenu.SetActive(true);
+        tutorialMsg1.SetActive(false);
+        tutorialMsg2.SetActive(false);
+        tutorialMsg3.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+        tutorialMsg1.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        tutorialMsg2.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        tutorialMsg3.SetActive(true);
+
+        yield return new WaitForSeconds(4f);
+
+        // Disable the tutorial messages
+        tutorialMenu.SetActive(false);
+
+        // Start the game
+        StartCoroutine(cameraTransition.Transition(player, lightManager));
     }
 
 }
