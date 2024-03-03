@@ -8,6 +8,9 @@ public class BeeAI : MonoBehaviour
     public AudioSource beeAudioSource;
 
     [Header("Bee Settings")]
+    [SerializeField] float maxBuzzingVolume = 0.8f;
+    [SerializeField] float volume;
+    [SerializeField] float minBuzzingVolume = 0.15f;
     bool beeline = false;
     Vector3 playerPosition;
     Vector3 beelineDirection;
@@ -22,13 +25,17 @@ public class BeeAI : MonoBehaviour
         StartCoroutine(BeeAICoroutine());
     }
 
+    void Update()
+    {
+        HandleBeeAudio();
+    }
+
     IEnumerator BeeAICoroutine()
     {
 
         while (!beeline)
         {
             playerPosition = GameObject.Find("Player").transform.position;
-            HandleBeeAudio();
             if (Vector3.Distance(transform.position, playerPosition) > 50)
             {
                 Destroy(gameObject);
@@ -48,7 +55,6 @@ public class BeeAI : MonoBehaviour
         }
         while (beeline)
         {
-            HandleBeeAudio();
             if (Vector3.Distance(transform.position, playerPosition) > 50)
             {
                 Destroy(gameObject);
@@ -61,13 +67,16 @@ public class BeeAI : MonoBehaviour
 
     private void HandleBeeAudio()
     {
-        if (Vector3.Distance(transform.position, playerPosition) > 20)
+        if (Vector3.Distance(transform.position, playerPosition) > 10)
         {
             beeAudioSource.mute = true;
         }
         else
         {
             beeAudioSource.mute = false;
+            // Volume decreases as player gets further away
+            volume = Mathf.Lerp(maxBuzzingVolume, .2f, Vector3.Distance(transform.position, playerPosition) / 10);
+            beeAudioSource.volume = volume;
         }
     }
 }
