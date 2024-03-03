@@ -38,7 +38,7 @@ public class BeeAI : MonoBehaviour
             else
             {
                 transform.position = circleCenter + new Vector3(circleRadius * Mathf.Cos(Time.time - startTime), 0, circleRadius * Mathf.Sin(Time.time - startTime));
-                circleRadius = Mathf.Sin(Time.time - startTime) * Mathf.Sin((Time.time - startTime) / 1.2f) * 2;
+                circleRadius = 1 + Mathf.Sin(Time.time - startTime) * Mathf.Sin((Time.time - startTime) / 1.2f) * 2;
             }
             yield return new WaitForSeconds(0.01f);
         }
@@ -49,7 +49,7 @@ public class BeeAI : MonoBehaviour
                 Destroy(gameObject);
             }
             transform.position += beelineDirection;
-            yield return new WaitForSeconds(0.004f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

@@ -32,11 +32,11 @@ public class LightningChallenge : Challenge
         // Every 0.5 seconds, spawn a warning
         while (count < 20)
         {
-            lightningWarningGameObject = Instantiate(lightningWarning1, playerPosition, Quaternion.identity);
+            lightningWarningGameObject = Instantiate(lightningWarning1, playerPosition, Quaternion.Euler(-90, Random.Range(0, 360), 0));
             yield return new WaitForSeconds(0.1f);
             count++;
             Destroy(lightningWarningGameObject);
-            lightningWarningGameObject = Instantiate(lightningWarning2, playerPosition, Quaternion.identity);
+            lightningWarningGameObject = Instantiate(lightningWarning2, playerPosition, Quaternion.Euler(-90, Random.Range(0, 360), 0));
             yield return new WaitForSeconds(0.1f);
             count++;
             Destroy(lightningWarningGameObject);
