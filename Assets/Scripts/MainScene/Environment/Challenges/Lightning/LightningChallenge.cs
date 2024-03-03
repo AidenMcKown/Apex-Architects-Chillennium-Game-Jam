@@ -58,7 +58,7 @@ public class LightningChallenge : Challenge
 
     IEnumerator SpawnLightning(Vector3 playerPosition, GameObject lightningBolt)
     {
-        GameObject lightningGameObject = Instantiate(lightningBolt, playerPosition - new Vector3(0, 1, 0), Quaternion.Euler(-46.306f, Random.Range(0, 360), -87.125f));
+        GameObject lightningGameObject = Instantiate(lightningBolt, playerPosition - new Vector3(0, 1, 0), Quaternion.Euler(-90, Random.Range(0, 360), 0));
 
         // Give lightning a randomized sound
         AudioSource audioSource = lightningGameObject.GetComponent<AudioSource>();

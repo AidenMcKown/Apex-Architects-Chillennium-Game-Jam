@@ -16,6 +16,8 @@ public class Menu : MonoBehaviour
     GameObject tutorialMsg2;
     [SerializeField]
     GameObject tutorialMsg3;
+    [SerializeField]
+    GameObject tutorialMsg4;
 
     public void StartGame()
     {
@@ -62,13 +64,19 @@ public class Menu : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         tutorialMsg1.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         tutorialMsg2.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         tutorialMsg3.SetActive(true);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
+        tutorialMsg1.SetActive(false);
+        tutorialMsg2.SetActive(false);
+        tutorialMsg3.SetActive(false);
+        tutorialMsg4.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
 
         // Disable the tutorial messages
         tutorialMenu.SetActive(false);
