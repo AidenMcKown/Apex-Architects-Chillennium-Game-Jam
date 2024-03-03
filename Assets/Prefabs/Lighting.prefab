@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4681522797025608125}
   - component: {fileID: 2412809848088395256}
   - component: {fileID: 6178346520778814718}
+  - component: {fileID: -2661350683972656975}
   m_Layer: 0
   m_Name: Lighting
   m_TagString: Untagged
@@ -106,3 +107,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4747656245569717890, guid: 831c68292addd87538b234ca7d19e72e, type: 3}
+--- !u!114 &-2661350683972656975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7706730903425633900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea89e264eae2ac6bc9421cc8097ff6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
