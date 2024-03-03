@@ -11,7 +11,7 @@ public class LightManager : MonoBehaviour
         if (EnvironmentEventManager.IsGameActive)
         {
             // Rotate the sun 2 degrees per second
-            transform.Rotate(2 * Time.deltaTime * Vector3.right);
+            transform.Rotate(360 / timeToRotate * Time.deltaTime * Vector3.right);
         }
     }
 }
