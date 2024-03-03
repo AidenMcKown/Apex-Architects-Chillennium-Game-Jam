@@ -31,11 +31,13 @@ public class PauseController : MonoBehaviour
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
         }
+        // print(Time.timeScale);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
         EnvironmentEventManager.IsGameActive = true;
+        InputManager.SwitchActionMap(InputManager.PlayerControls.Player);
     }
 }
