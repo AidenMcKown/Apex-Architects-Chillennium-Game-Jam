@@ -4,7 +4,7 @@ public class EnvironmentEventManager : MonoBehaviour
 {
 
     public static bool IsGameActive = false;
-    public static float dayDuration = 120f;
+    public static float dayDuration = 90f;
 
     public enum State
     {
@@ -18,15 +18,15 @@ public class EnvironmentEventManager : MonoBehaviour
 
     State GetState()
     {
-        if (GameState.GetTimeSinceStartOfDay() < dayDuration / 3 && GameState.GetTimeSinceStartOfDay() >= 0)
+        if (GameState.GetTimeSinceStartOfDay() % dayDuration < dayDuration / 3 && GameState.GetTimeSinceStartOfDay() >= 0)
         {
             return State.Morning;
         }
-        else if (GameState.GetTimeSinceStartOfDay() < dayDuration * 2 / 3 && GameState.GetTimeSinceStartOfDay() >= 0)
+        else if (GameState.GetTimeSinceStartOfDay() % dayDuration < dayDuration * 2 / 3 && GameState.GetTimeSinceStartOfDay() >= 0)
         {
             return State.Afternoon;
         }
-        else if (GameState.GetTimeSinceStartOfDay() < dayDuration && GameState.GetTimeSinceStartOfDay() >= 0)
+        else if (GameState.GetTimeSinceStartOfDay() % dayDuration < dayDuration && GameState.GetTimeSinceStartOfDay() >= 0)
         {
             return State.Night;
         }

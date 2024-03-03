@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cddf8fcef4ec85fb4839b1054d291d12
+guid: 17352eb13cc7b4b368ed1b3df829b7c3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lightning Sparks
-    second: {fileID: 2100000, guid: b794a56e7e33e977da06deaf49048996, type: 2}
+    second: {fileID: 2100000, guid: 94a02acd3a90761be97676d7a7d2102b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
