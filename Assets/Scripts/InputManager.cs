@@ -33,11 +33,6 @@ public class InputManager : MonoBehaviour
 
         TestInput = PlayerControls.Player.Test.triggered;
 
-        if (TestInput)
-        {
-            HealthSystem.ApplyDamage(10f);
-        }
-
         // Enter pause menu
         GameEscapeInput = PlayerControls.Player.Escape.triggered;
         if (GameEscapeInput && EnvironmentEventManager.IsGameActive && HasGameStarted)
