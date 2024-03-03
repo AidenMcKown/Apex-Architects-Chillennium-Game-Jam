@@ -28,4 +28,16 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
+    public void OpenCredits(GameObject creditsMenu)
+    {
+        GameObject.FindGameObjectWithTag("MainMenu").SetActive(false);
+        creditsMenu.SetActive(true);
+    }
+
+    public void CloseCredits(GameObject mainMenu)
+    {
+        mainMenu.SetActive(true);
+        GameObject.FindGameObjectWithTag("CreditsMenu").SetActive(false);
+    }
+
 }
