@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ChallengeManager : MonoBehaviour
 {
-
-    public Challenge[] challenges;
+    public Challenge[] clearChallenges;
+    public Challenge[] stormyChallenges;
 
     void Update()
     {
@@ -18,7 +18,7 @@ public class ChallengeManager : MonoBehaviour
         float randFloat;
         if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Morning)
         {
-            foreach (Challenge challenge in challenges)
+            foreach (Challenge challenge in clearChallenges)
             {
                 randFloat = Random.Range(0f, 1f);
                 if (randFloat < challenge.weights[0])
@@ -31,7 +31,7 @@ public class ChallengeManager : MonoBehaviour
         }
         else if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Afternoon)
         {
-            foreach (Challenge challenge in challenges)
+            foreach (Challenge challenge in stormyChallenges)
             {
                 randFloat = Random.Range(0f, 1f);
                 if (randFloat < challenge.weights[1])
@@ -44,7 +44,7 @@ public class ChallengeManager : MonoBehaviour
         }
         else if (EnvironmentEventManager.CurrentState == EnvironmentEventManager.State.Night)
         {
-            foreach (Challenge challenge in challenges)
+            foreach (Challenge challenge in stormyChallenges)
             {
                 randFloat = Random.Range(0f, 1f);
                 if (randFloat < challenge.weights[2])
