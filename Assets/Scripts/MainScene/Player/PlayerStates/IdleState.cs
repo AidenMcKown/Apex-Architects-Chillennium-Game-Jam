@@ -11,6 +11,7 @@ public class IdleState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+        targetAnimationVelocity = 0;
     }
 
     public override void LogicUpdate()

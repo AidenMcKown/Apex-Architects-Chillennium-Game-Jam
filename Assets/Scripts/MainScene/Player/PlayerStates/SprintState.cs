@@ -13,6 +13,7 @@ public class SprintState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+        targetAnimationVelocity = 1f;
     }
 
     public override void LogicUpdate()
