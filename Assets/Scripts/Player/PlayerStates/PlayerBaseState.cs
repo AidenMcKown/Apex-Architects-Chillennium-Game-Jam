@@ -5,6 +5,7 @@ public class PlayerBaseState
 {
     protected PlayerStateMachine stateMachine;
     protected PlayerStateManager stateManager;
+    protected float currentAnimationVelocity, targetAnimationVelocity, animationRefVelocity;
 
     public PlayerBaseState(PlayerStateMachine _stateMachine, PlayerStateManager _stateManager)
     {
@@ -21,6 +22,9 @@ public class PlayerBaseState
     public virtual void LogicUpdate()
     {
         RotateTowardsMovementDirection();
+
+        currentAnimationVelocity = Mathf.SmoothDamp(currentAnimationVelocity, targetAnimationVelocity, ref animationRefVelocity, stateManager.animationSmoothTime);
+        stateManager.playerAnimator.SetFloat("Velocity", currentAnimationVelocity);
     }
 
     public virtual void PhysicsUpdate()

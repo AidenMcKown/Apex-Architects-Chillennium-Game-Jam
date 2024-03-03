@@ -14,6 +14,7 @@ public class RunState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+        targetAnimationVelocity = 0.5f;
     }
 
     public override void LogicUpdate()

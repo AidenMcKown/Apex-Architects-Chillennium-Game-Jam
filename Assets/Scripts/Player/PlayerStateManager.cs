@@ -10,6 +10,7 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] public Transform feetTransform;
     [SerializeField] public AudioSource footstepAudioSource;
     [SerializeField] public List<AudioClip> footstepSounds;
+    [SerializeField] public Animator playerAnimator;
     public PlayerStateMachine stateMachine;
 
     [Header("States")]
@@ -27,6 +28,9 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] public float sprintSpeed = 10f;
     [SerializeField] public float runFootstepInterval = 0.5f;
     [SerializeField] public float sprintFootstepInterval = 0.3f;
+
+    [Header("Animation Settings")]
+    [SerializeField] public float animationSmoothTime = 0.1f;
 
     void Start()
     {
