@@ -3,7 +3,17 @@ guid: 8104f9cfd75af7540b9596ce308bde55
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass Top
+    second: {fileID: 2100000, guid: 76d19aa7829cd4542bb87271dc4df37b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Terrain Gradient
+    second: {fileID: 2100000, guid: 4e39ab9abde001041b6a7d7365b69e6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
